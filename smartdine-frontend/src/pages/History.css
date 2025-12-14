@@ -169,8 +169,8 @@
 }
 
 .review-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, #ff9a70, #ff7b54);
+    color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 12px;
