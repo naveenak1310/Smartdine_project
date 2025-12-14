@@ -2,3 +2,8 @@ node_modules/
 smartdine-frontend/node_modules/
 .env
 smartdine-frontend/.env
+dist/
+build/
+.vscode/
+.DS_Store
+smartdine-backend/target/
