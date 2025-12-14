@@ -23,7 +23,8 @@ import okhttp3.Response;
 @CrossOrigin(origins = "http://localhost:5173")
 public class ChatbotController {
 
-    private static final String API_KEY = "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";
+    private final String API_KEY = System.getenv("OPENROUTER_API_KEY");
+
 
     @Autowired
     private RestaurantRepository restaurantRepo;
