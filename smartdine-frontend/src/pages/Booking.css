@@ -1,0 +1,186 @@
+
+.booking-page {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 60px 20px; 
+    min-height: calc(100vh - 80px); 
+    background-color: transparent; 
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.booking-card {
+    width: 100%;
+    max-width: 580px; 
+    background: #ffffff;
+    padding: 45px;
+    border-radius: 24px; 
+    box-shadow: 0 20px 50px rgba(45, 55, 72, 0.12);
+    transition: transform 0.3s ease;
+}
+.card-title {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.restaurant-name {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 35px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ff7b54; 
+}
+
+
+.booking-card label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+
+.booking-card input,
+.booking-card textarea {
+    width: 100%;
+    padding: 14px 18px; 
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.12);
+    font-size: 16px;
+    color: #222;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.booking-card input:focus,
+.booking-card textarea:focus {
+    border-color: #ff7b54;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 123, 84, 0.2); 
+}
+
+.booking-card textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+
+.datetime-group {
+    display: flex;
+    gap: 20px;
+}
+
+.date-input-container,
+.time-input-container {
+    flex: 1;
+}
+
+
+.confirm-btn {
+    width: 100%;
+    padding: 16px;
+    margin-top: 40px;
+    background: linear-gradient(135deg, #ff9a70, #ff7b54); 
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 1.15em;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 15px 30px rgba(255, 123, 84, 0.4); 
+}
+
+.confirm-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(255, 123, 84, 0.5);
+    filter: brightness(1.05);
+}
+
+
+
+.popup-box {
+    background: #fff0f0; 
+    color: #b91c1c; 
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid #f0cccc;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px;
+    animation: popupAnim 0.4s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.success-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80vh;
+    padding: 20px;
+    background-color: transparent;
+}
+
+.success-title {
+    font-size: 2.5rem;
+    color: #10b981;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.success-message {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.go-history-btn {
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #10b981, #0d9488);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
+}
+
+.go-history-btn:hover {
+    background: linear-gradient(135deg, #0e8a64, #0b786c);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(16, 185, 129, 0.5);
+}
+
+.loading-message {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.5em;
+    color: #555;
+}
+
+
+@media (max-width: 600px) {
+    .booking-card {
+        padding: 30px 20px;
+    }
+    
+    .datetime-group {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .confirm-btn {
+        font-size: 1.05em;
+    }
+}
