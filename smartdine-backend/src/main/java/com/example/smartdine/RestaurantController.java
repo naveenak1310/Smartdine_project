@@ -33,43 +33,53 @@ public class RestaurantController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Restaurant> updateRestaurant(
-            @PathVariable Long id,
-            @RequestBody Restaurant r) {
+public ResponseEntity<Restaurant> updateRestaurant(
+        @PathVariable Long id,
+        @RequestBody Restaurant r) {
 
-        return restaurantRepo.findById(id)
-                .map(db -> {
+    return restaurantRepo.findById(id)
+            .map(db -> {
 
-                    if (r.getName() != null && !r.getName().isEmpty())
-                        db.setName(r.getName());
+                if (r.getName() != null && !r.getName().isEmpty())
+                    db.setName(r.getName());
 
-                    if (r.getCuisine() != null && !r.getCuisine().isEmpty())
-                        db.setCuisine(r.getCuisine());
+                if (r.getCuisine() != null && !r.getCuisine().isEmpty())
+                    db.setCuisine(r.getCuisine());
 
-                    if (r.getPriceRange() != null && !r.getPriceRange().isEmpty())
-                        db.setPriceRange(r.getPriceRange());
+                if (r.getPriceRange() != null && !r.getPriceRange().isEmpty())
+                    db.setPriceRange(r.getPriceRange());
 
-                    if (r.getLocation() != null && !r.getLocation().isEmpty())
-                        db.setLocation(r.getLocation());
+                if (r.getLocation() != null && !r.getLocation().isEmpty())
+                    db.setLocation(r.getLocation());
 
-                    if (r.getDescription() != null && !r.getDescription().isEmpty())
-                        db.setDescription(r.getDescription());
+                if (r.getArea() != null && !r.getArea().isEmpty())
+                    db.setArea(r.getArea());
 
-                    if (r.getTags() != null && !r.getTags().isEmpty()) {
-                        db.setTags(r.getTags());
+                if (r.getLatitude() != null)
+                    db.setLatitude(r.getLatitude());
 
-                        tagRepo.deleteAll(tagRepo.findByRestaurantId(id));
-                        saveTags(id, r.getTags());
-                    }
+                if (r.getLongitude() != null)
+                    db.setLongitude(r.getLongitude());
 
-                    if (r.getImages() != null && !r.getImages().isEmpty())
-                        db.setImages(r.getImages());
+                if (r.getDescription() != null && !r.getDescription().isEmpty())
+                    db.setDescription(r.getDescription());
 
-                    Restaurant saved = restaurantRepo.save(db);
-                    return ResponseEntity.ok(saved);
-                })
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
+                if (r.getTags() != null && !r.getTags().isEmpty()) {
+                    db.setTags(r.getTags());
+                    tagRepo.deleteAll(tagRepo.findByRestaurantId(id));
+                    saveTags(id, r.getTags());
+                }
+
+                if (r.getImages() != null && !r.getImages().isEmpty())
+                    db.setImages(r.getImages());
+
+                Restaurant saved = restaurantRepo.save(db);
+                return ResponseEntity.ok(saved);
+            })
+            .orElseGet(() -> ResponseEntity.notFound().build());
+        }
+
+    
 
    
     private void saveTags(Long restaurantId, String tagsString) {

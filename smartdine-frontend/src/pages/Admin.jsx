@@ -39,17 +39,18 @@ export default function Admin() {
 
   const saveRestaurant = async () => {
     const payload = {
-      name: form.name,
-      cuisine: form.cuisine,
-      priceRange: form.priceRange,
-      location: form.location,
-      area: form.area,
-      latitude: form.latitude || null,
-      longitude: form.longitude || null,
-      description: form.description,
-      tags: form.tags,
-      images: form.imageUrl || null
-    };
+    name: form.name,
+    cuisine: form.cuisine,
+    priceRange: form.priceRange,
+    location: form.location,
+    area: form.area,
+    latitude: form.latitude !== "" ? parseFloat(form.latitude) : null,
+    longitude: form.longitude !== "" ? parseFloat(form.longitude) : null,
+    description: form.description,
+    tags: form.tags,
+    images: form.imageUrl || null
+                    };
+
 
     if (editing) {
       await fetch(`http://localhost:8080/api/restaurants/${editing}`, {

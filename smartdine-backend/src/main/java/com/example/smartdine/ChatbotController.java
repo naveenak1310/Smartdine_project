@@ -84,8 +84,7 @@ public class ChatbotController {
             • After listing restaurants, STOP. Do not add alternatives, suggestions, or extra text
             • NEVER use words like "Alternatively", "You might also consider", "Other options"
             • NEVER mention restaurants not present in the list
-
-•            You MUST recommend ONLY restaurants that appear EXACTLY in the list below
+            •You MUST recommend ONLY restaurants that appear EXACTLY in the list below
             • If ONLY ONE restaurant matches the request, suggest ONLY THAT ONE
             • DO NOT add extra restaurants to reach 2 or 3
             • DO NOT invent names, descriptions, or places
