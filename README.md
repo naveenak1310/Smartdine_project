@@ -1,59 +1,170 @@
-SmartDine – Food Discovery & Table Booking App
+# SmartDine – Restaurant Recommendation by AI Assistant
 
-SmartDine is a full-stack web application built to help users decide where to eat based on mood, budget, and location.
-It was developed as a learning project to understand real-world full-stack application flow.
+SmartDine is a full-stack web application that helps users discover nearby restaurants, get food recommendations based on their preferences,their moods and book tables easily.  
 
-Tech Stack
+The project demonstrates full-stack development using React, Spring Boot, and MySQL.
 
-1.Backend
-Spring Boot
-MySQL
-Spring Data JPA
-REST APIs
+---
+## How It Works
 
-2.Frontend
-React (Vite)
-React Router
-CSS
-3.Others
-OpenStreetMap (Nominatim)
-Google Maps
-Postman
+### 🤖 Conversational Search
+Type naturally like you'd ask a friend:
+- *"something healthy like salad"*
+- *"Spicy Biryani cheap and best"*
+- *"i want french fries and burger"*
+### 🎲 "Surprise Me" Feature
+Can't decide? Let SmartDine pick something perfect for you based on random suggestion.
+## Project Overview
 
-Features
-1.User signup & login
+SmartDine allows users to:
+- Register and log in
+- Search restaurants using simple text queries
+- View restaurant details such as cuisine, price range, ratings, reviews and images
+- Book tables and view booking history
+- Add restaurants to a wishlist
+- Submit ratings and reviews
 
-2.Mood-based restaurant search
+An admin dashboard is included for managing restaurant data and bookings.
+Admin can add a new restauarant.
 
-3.Voice search
+---
 
-4.Restaurant details with images
+## Tech Stack
 
-5.Table booking
+**Frontend**
+- React JS
+- JavaScript
+- HTML
+- CSS
 
-6.Reviews & ratings
+**Backend**
+- Java
+- Spring Boot
+- Spring Web (REST APIs)
+- JPA Data
 
-7.Wishlist
+**Database**
+- MySQL
 
-8.Booking history
+**Tools**
+- Postman – API testing and debugging
+- LottieFiles – animations used in the UI
+- OpenRouter API (Chatbot feature)
 
-9.Used 16 animation
+---
 
-10.Used more than 56 images
+## Project Structure
+```
+smartdine-mysql-project
+├── smartdine-frontend
+│   └── src
+├── smartdine-backend
+│   └── src
+├── README.md
+└── .gitignore
+```
 
-Admin panel
+---
 
-Recommendation Logic
+## Instructions to Setup and Run the Application
 
-The backend uses simple keyword matching (cheap, spicy, cheesy, comfort, etc.)
-to suggest restaurants and a few alternatives.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/naveenak1310/SmartDine_project.git
+```
 
-How to Run
-Backend
+### 2. Navigate to Backend Folder
+```bash
 cd smartdine-backend
-mvn spring-boot:run
+```
 
-Frontend
+### 3. Configure MySQL Database
+
+- Create a MySQL database (example: `smartdine_db`)
+- Update database credentials in:
+```
+src/main/resources/application.properties
+```
+
+### 4. Set OpenRouter API Key (Environment Variable)
+
+**Windows (PowerShell)**
+```powershell
+setx OPENROUTER_API_KEY "your_api_key_here"
+```
+
+Restart the terminal after setting the variable.
+
+### 5. Run the Backend
+```bash
+mvn spring-boot:run
+```
+
+Backend will start at:
+```
+http://localhost:8080
+```
+
+---
+
+## Frontend Setup
+
+### 6. Navigate to Frontend Folder
+```bash
 cd smartdine-frontend
+```
+
+### 7. Install Dependencies
+```bash
 npm install
-npm run de
+```
+
+### 8. Start the Frontend
+```bash
+npm run dev
+```
+
+Frontend will start at:
+```
+http://localhost:5173
+```
+
+---
+
+## Database Tables
+
+- users
+- restaurants
+- bookings
+- reviews
+- restaurant_tags
+
+---
+
+## Security Notes
+
+- API keys are stored using environment variables
+- `.env`, `node_modules`, `target`, and build folders are ignored via `.gitignore`
+- No sensitive information is committed to GitHub
+
+---
+
+## Features
+
+- User authentication
+- Restaurant search and recommendations
+- Table booking system
+- Booking history
+- Wishlist management
+- Ratings and reviews
+- Admin dashboard
+- Chatbot integration
+- 16 Animation for UI
+
+---
+
+## Author
+
+**Naveen**  
+Full Stack Developer  
+Java | Spring Boot | React | MySQL
