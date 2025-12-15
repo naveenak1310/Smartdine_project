@@ -75,7 +75,6 @@ export default function Booking() {
             });
 
             if (!res.ok) {
-                // Attempt to read server error message if available
                 const errorText = await res.text();
                 const errorMsg = errorText || "Booking failed. Please try again.";
                 setPopup(`❌ ${errorMsg}`);

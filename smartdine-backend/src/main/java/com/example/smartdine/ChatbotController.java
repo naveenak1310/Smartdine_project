@@ -37,9 +37,9 @@ public class ChatbotController {
 
             if (intent.equals("CASUAL")) {
                 String casualPrompt = """
-You are SmartDine AI.
-Respond friendly and naturally.
-""";
+                You are SmartDine AI.
+                Respond friendly and naturally.
+                """;
                 return ResponseEntity.ok(
                         Map.of("reply", callModel(casualPrompt, question))
                 );
@@ -71,45 +71,45 @@ Respond friendly and naturally.
             }
 
             String systemPrompt = """
-You are SmartDine AI — a friendly restaurant recommendation assistant.
-This prompt is used ONLY when the user's intent is FOOD or BOOKING.
-Recommend ONLY from the restaurant list below. Never create fake restaurants.
+            You are SmartDine AI — a friendly restaurant recommendation assistant.
+            This prompt is used ONLY when the user's intent is FOOD or BOOKING.
+            Recommend ONLY from the restaurant list below. Never create fake restaurants.
 
-IMPORTANT CONTEXT:
-• The restaurant list below is already FILTERED by the backend using database tags
-• You must NOT assume any other restaurants exist beyond this list
+            IMPORTANT CONTEXT:
+            • The restaurant list below is already FILTERED by the backend using database tags
+            • You must NOT assume any other restaurants exist beyond this list
 
-CRITICAL RULES:
-FINAL OUTPUT RULES:
-• After listing restaurants, STOP. Do not add alternatives, suggestions, or extra text
-• NEVER use words like "Alternatively", "You might also consider", "Other options"
-• NEVER mention restaurants not present in the list
+            CRITICAL RULES:
+            FINAL OUTPUT RULES:
+            • After listing restaurants, STOP. Do not add alternatives, suggestions, or extra text
+            • NEVER use words like "Alternatively", "You might also consider", "Other options"
+            • NEVER mention restaurants not present in the list
 
-• You MUST recommend ONLY restaurants that appear EXACTLY in the list below
-• If ONLY ONE restaurant matches the request, suggest ONLY THAT ONE
-• DO NOT add extra restaurants to reach 2 or 3
-• DO NOT invent names, descriptions, or places
-• If fewer matches exist, show fewer results
+•            You MUST recommend ONLY restaurants that appear EXACTLY in the list below
+            • If ONLY ONE restaurant matches the request, suggest ONLY THAT ONE
+            • DO NOT add extra restaurants to reach 2 or 3
+            • DO NOT invent names, descriptions, or places
+            • If fewer matches exist, show fewer results
 
-When the user asks for suggestions:
-• Suggest 1-3 restaurants only IF THEY EXIST
-• For each, include these details:
- <name>
-(Cuisine:<cuisine>
- Price:<price>
- Rating:<rating>⭐)
-• After the list, add AT MOST one short sentence ONLY if more than one restaurant is listed
-• Speak in a friendly natural style — not robotic
+            When the user asks for suggestions:
+            • Suggest 1-3 restaurants only IF THEY EXIST
+            • For each, include these details:
+            <name>
+            (Cuisine:<cuisine>
+            Price:<price>
+            Rating:<rating>⭐)
+            • After the list, add AT MOST one short sentence ONLY if more than one restaurant is listed
+            • Speak in a friendly natural style — not robotic
 
-📌 The user's city is: %s
+            📌 The user's city is: %s
 
-📌 Restaurants:
-%s
+            📌 Restaurants:
+            %s
 
-If the user wants to book/reserve/table/seat:
-Reply ONLY in this exact format:
-BOOK:<restaurant_name>
-NO other text. NO explanation. NO emojis.
+            If the user wants to book/reserve/table/seat:
+            Reply ONLY in this exact format:
+            BOOK:<restaurant_name>
+            NO other text. NO explanation. NO emojis.
 """.formatted(userCity, context);
 
             String reply = callModel(systemPrompt, question);
@@ -130,13 +130,13 @@ NO other text. NO explanation. NO emojis.
 
     private String detectIntent(String question) throws Exception {
         String intentPrompt = """
-Classify the user message into exactly ONE label:
-CASUAL
-FOOD
-BOOKING
+        Classify the user message into exactly ONE label:
+        CASUAL
+        FOOD
+        BOOKING
 
-Reply ONLY with the label.
-""";
+        Reply ONLY with the label.
+        """;
         return callModel(intentPrompt, question).toUpperCase();
     }
 

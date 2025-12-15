@@ -1,20 +1,13 @@
-/*
-|--------------------------------------------------------------------------
-| BASE & LAYOUT STYLES
-|--------------------------------------------------------------------------
-*/
-
 .app-root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* Soft, warm background gradient */
   background: radial-gradient(circle at top, #fff8f0 0%, #f7f2ff 60%, #f2fbff 100%);
   font-family: 'Poppins', sans-serif; 
   color: #222;
 }
 
-/* Header */
+
 .app-header {
   display: flex;
   align-items: center;

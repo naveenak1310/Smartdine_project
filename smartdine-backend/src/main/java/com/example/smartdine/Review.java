@@ -23,7 +23,7 @@ public class Review {
     @Column(name = "user_id")
     private Long userId;
 
-    private int rating; // 1-5 stars
+    private int rating;
     
     @Column(length = 1000)
     private String text;

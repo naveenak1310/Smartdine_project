@@ -90,19 +90,19 @@ export default function Signup() {
   };
 
   return (
-    <>
+       <>
       {showAnim && (
         <div className="enter-overlay">
          <Lottie
-  lottieRef={lottieRef}
-  animationData={enterAnim}
-  loop={false}
-  onDOMLoaded={() => {
-    if (lottieRef.current) lottieRef.current.setSpeed(1.75);
-  }}
-  onComplete={() => navigate("/")}
-  style={{ width: 450, height: 450 }}
-/>
+         lottieRef={lottieRef}
+         animationData={enterAnim}
+         loop={false}
+         onDOMLoaded={() => {
+         if (lottieRef.current) lottieRef.current.setSpeed(1.75);
+             }}
+         onComplete={() => navigate("/")}
+         style={{ width: 450, height: 450 }}
+        />
 
         </div>
       )}

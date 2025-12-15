@@ -101,7 +101,7 @@ return (
       />
 
       <button className="contact-btn" onClick={send}>
-        Send Message 🚀
+        Send Message
       </button>
     </div>
   </div>
