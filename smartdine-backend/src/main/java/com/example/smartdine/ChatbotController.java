@@ -112,13 +112,22 @@ public class ChatbotController {
 """.formatted(userCity, context);
 
             String reply = callModel(systemPrompt, question);
+if (reply.startsWith("BOOK:")) {
+            String name = reply.replace("BOOK:", "").trim().toLowerCase();
 
-            if (reply.startsWith("BOOK:")) {
-                String name = reply.replace("BOOK:", "").trim().toLowerCase();
-                if (best.getName().toLowerCase().contains(name)) {
-                    return ResponseEntity.ok(Map.of("reply", "BOOK:" + best.getId()));
+            if (best.getName().toLowerCase().equals(name)) {
+            return ResponseEntity.ok(Map.of("reply", "BOOK:" + best.getId()));
+            }
+
+            for (Restaurant r : rec.getAlternatives()) {
+                if (r.getName().toLowerCase().equals(name)) {
+                return ResponseEntity.ok(Map.of("reply", "BOOK:" + r.getId()));
                 }
             }
+
+             return ResponseEntity.ok(Map.of("reply", "I couldn’t find that restaurant for booking."));
+}
+
 
             return ResponseEntity.ok(Map.of("reply", reply));
 
