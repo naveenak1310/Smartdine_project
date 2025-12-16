@@ -109,10 +109,10 @@ public class ChatbotController {
             Reply ONLY in this exact format:
             BOOK:<restaurant_name>
             NO other text. NO explanation. NO emojis.
-""".formatted(userCity, context);
+            """.formatted(userCity, context);
 
             String reply = callModel(systemPrompt, question);
-if (reply.startsWith("BOOK:")) {
+            if (reply.startsWith("BOOK:")) {
             String name = reply.replace("BOOK:", "").trim().toLowerCase();
 
             if (best.getName().toLowerCase().equals(name)) {
@@ -126,7 +126,7 @@ if (reply.startsWith("BOOK:")) {
             }
 
              return ResponseEntity.ok(Map.of("reply", "I couldn’t find that restaurant for booking."));
-}
+            }
 
 
             return ResponseEntity.ok(Map.of("reply", reply));
