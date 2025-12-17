@@ -48,7 +48,7 @@ public class ChatbotController {
             RecommendationResponse rec = recommendationService.recommend(question);
 
             if (rec.getBestMatch() == null) {
-                return ResponseEntity.ok(Map.of("reply", "No matching restaurants found"));
+                return ResponseEntity.ok(Map.of("reply", "Sorry, We currently dont have this food in our restaurant"));
             }
 
             StringBuilder context = new StringBuilder();
