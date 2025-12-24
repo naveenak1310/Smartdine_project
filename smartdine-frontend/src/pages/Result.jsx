@@ -28,6 +28,19 @@ export default function Result() {
   const [currentImage] = useState(0);
   const imageList = bestMatch?.images ? bestMatch.images.split(",") : [];
 
+  if (!bestMatch) {
+    return (
+      <section className="result-page">
+        <div className="result-card">
+          <p>Sorry, we don't have the food currently in our restaurant.</p>
+          <button className="secondary-btn" onClick={() => navigate("/search")}>
+            Go to search
+          </button>
+        </div>
+      </section>
+    );
+  }
+
   const bestArea =
     city === "Coimbatore"
       ? bestMatch.area

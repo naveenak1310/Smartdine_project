@@ -1,0 +1,2 @@
+the chatbot uses rag 
+github repository(https://github.com/naveenak1310/Smartdine_UsingRag.git)
